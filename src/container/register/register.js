@@ -1,7 +1,8 @@
 import React from 'react'
-import Logo from '../../component/logo/logo'
-import { List, InputItem, Radio, WingBlank, WhiteSpace, Button} from 'antd-mobile'
+import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
+import { List, InputItem, Radio, WingBlank, WhiteSpace, Button} from 'antd-mobile'
+import Logo from '../../component/logo/logo'
 import { register } from '../../redux/user.redux'
 
 @connect(
@@ -20,18 +21,20 @@ class Register extends React.Component {
     this.handleChange = this.handleChange.bind(this)
     this.register = this.register.bind(this)
   }
-  handleChange(v, key) {
+  handleChange(key, v) {
     this.setState({
       [key]: v,
     })
   }
   register() {
+    console.log(this.state)
     this.props.register(this.state)
   }
   render() {
     const RadioItem = Radio.RadioItem
     return (
       <div>
+        { this.props.redirectTo ? <Redirect to={this.props.redirectTo} /> : null }
         <Logo />
         <h2>注册页面</h2>
         <List>
