@@ -18,6 +18,7 @@ import GeniusInfo from './container/geniusinfo/geniusinfo'
 import Dashboard from './container/dashboard/dashboard'
 import reducers from './reducer'
 import './config'
+import './index.css'
 
 const store = createStore(reducers, compose(
   applyMiddleware(thunk),
