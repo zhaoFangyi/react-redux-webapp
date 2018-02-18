@@ -5,14 +5,11 @@ import { NavBar } from 'antd-mobile'
 import NavLinkBar from '../../component/navlink/navlink'
 import { update } from '../../redux/user.redux'
 import Boss from '../../component/boss/boss'
+import Genius from '../../component/genius/genius'
+import User from '../../component/user/user'
+import { getMsgList, recvMsg } from '../../redux/chat.redux'
 
-class Genius extends React.Component {
-  render() {
-    return (
-      <h1>genius列表</h1>
-    )
-  }
-}
+
 class Msg extends React.Component {
   render() {
     return (
@@ -20,22 +17,21 @@ class Msg extends React.Component {
     )
   }
 }
-class User extends React.Component {
-  render() {
-    return (
-      <h1>个人中心</h1>
-    )
-  }
-}
 
 @connect(
   state => state,
-  { update },
+  { update, getMsgList, recvMsg },
 )
 class Dashboard extends React.Component {
   constructor(props) {
     super(props)
     this.state = {}
+  }
+  componentDidMount () {
+    if (!this.props.chat.chatmsg.length) {
+      this.props.getMsgList()
+      this.props.recvMsg() 
+    }
   }
   render() {
     const { pathname } = this.props.location

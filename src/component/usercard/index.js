@@ -5,7 +5,6 @@ import { withRouter } from 'react-router-dom'
 
 @withRouter
 class UserCard extends React.Component {
-
     static propTypes = {
         userlist: PropTypes.array.isRequired
     }
