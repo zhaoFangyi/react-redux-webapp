@@ -7,16 +7,8 @@ import { update } from '../../redux/user.redux'
 import Boss from '../../component/boss/boss'
 import Genius from '../../component/genius/genius'
 import User from '../../component/user/user'
+import Msg from '../../component/msg/msg'
 import { getMsgList, recvMsg } from '../../redux/chat.redux'
-
-
-class Msg extends React.Component {
-  render() {
-    return (
-      <h1>消息列表</h1>
-    )
-  }
-}
 
 @connect(
   state => state,

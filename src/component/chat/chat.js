@@ -1,7 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Redirect } from 'react-router-dom'
-import Logo from '../../component/logo/logo'
 import { List, InputItem, NavBar, Icon, Grid } from 'antd-mobile'
 import { getMsgList, sendMsg, recvMsg } from '../../redux/chat.redux'
 import {getChatId} from '../../util'
